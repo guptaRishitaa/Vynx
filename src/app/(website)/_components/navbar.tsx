@@ -15,7 +15,7 @@ const LandingPageNavBar = () => {
         src="/opal-logo.svg"
         width={40}
         height={40}/>
-        Opal
+        Vynx
         </div>
         <div className='hidden gap-x-10 items-center lg:flex'>
           <Link href='/' className="bg-[#7320DD] py-2 px-5 font-semibold text-lg rounded-full hover:bg-[#7320DD]/80">Home</Link>

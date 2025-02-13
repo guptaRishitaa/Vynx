@@ -25,13 +25,7 @@ return redirect(`/auth/sign-in`)
   // Then we wll check if the user already ahs an account
   // if accounts exists, redirect them to the right page
   // if doessnit exists, create the account in the database
-  return (
-
-   
-    <div>DashboardPage
-
-    </div>
-  )
+  
 }
 
 export default DashboardPage

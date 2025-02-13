@@ -6,7 +6,20 @@ const isProtectedRoutes = createRouteMatcher([
     '/dashboard(.*)', '/api/payment', '/payment(.*)'
 ])
 
+const isPublicRoutes = createRouteMatcher([
+  '/auth/callback(.*)',  // Ensure `/auth/callback` is public
+  '/auth/sign-in(.*)',   // Add any other public authentication routes if needed
+]);
+
+
+
+
 export default clerkMiddleware(async (auth, req) => {
+
+  if (isPublicRoutes(req)) {
+    return;
+  }
+  
     if(isProtectedRoutes(req)){
   await auth.protect()
     }
