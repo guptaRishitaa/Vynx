@@ -2,6 +2,7 @@
 
 import { client } from "@/lib/prisma"
 import { currentUser } from "@clerk/nextjs/server"
+import { string } from "zod"
 
 export const verifyAccessToWorkspace = async (workspaceId : string)=> {
     try {
@@ -248,5 +249,58 @@ export const createFolder = async (workspaceId:string) =>{
         }
     } catch (error) {
         return { status: 500, message: "Oops!! Something went wrong" }
+    }
+}
+
+export const getFolderInfo = async (folderId : string) => {
+    try {
+        const folder = await client.folder.findUnique({
+            where: {
+                id : folderId
+            },
+            select:{
+                name: true,
+                _count: {
+                    select : {
+                        videos: true 
+                    }
+                }
+            }
+        })
+        if(folder){
+            return {status : 200, data : folder}
+        }
+        return {status : 400, data : null}
+    } catch (error) {
+        return {status : 500, data : null }
+    }
+
+}
+
+export const moveVideoLocation = async(
+    videoId : string,
+    workSpaceId : string,
+    folderId : string 
+) => {
+    try {
+        // go into the database and get that video and after we get it we can update the information
+        const location = await client.video.update({
+            where : {
+                id : videoId
+            },
+            data : {
+                folderId : folderId || null,
+                workSpaceId
+
+            }
+        })
+
+        if(location) return {status : 200, data : 'folder changed successfully'}
+
+        return {status : 400, data : 'Workspace / folder not found'}
+
+    } catch (error) {
+        return {status : 500, data : 'Oops!! Something went wrong'}
+        
     }
 }
