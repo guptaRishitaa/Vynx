@@ -57,6 +57,8 @@ const Sidebar = ({ activeWorkspaceId }: Props) => {
     dispatch(WORKSPACES({workspaces: workspace.workspace}))
   }
 
+  console.log("WORKPSAXE SIDE ", workspace)
+
   // WIP : Add upgrade button
   const SidebarSection =  (
     <div className="bg-[#111111] flex-none relative p-4 h-full w-[250px] flex flex-col gap-4 items-center overflow-hidden">
@@ -157,7 +159,7 @@ description="Invite other users to your Workspace" >
         {workspace.workspace.length > 0 && 
         workspace.workspace.map(
           (item) => 
-            item.type === 'PERSONAL' && (
+            item.type !== 'PERSONAL' && (
         <SidebarItem href={`/dashboard/${item.id}`}
         selected= {pathName === `/dashboard/${item.id}`} 
         title={item.name}
@@ -165,7 +167,10 @@ description="Invite other users to your Workspace" >
         key={item.name}
         icon={<WorkspacePlaceholder>
           {item.name.charAt(0)}
-        </WorkspacePlaceholder>} />))}
+        </WorkspacePlaceholder>} />
+      )
+      )}
+
 
         {/* all the workspaces the user is a member of */}
         {workspace.members.length > 0 && 

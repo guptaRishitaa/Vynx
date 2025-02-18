@@ -14,12 +14,13 @@ export const useMutationData = (
         mutationFn,
         onSuccess(data){
             if(onSuccess) onSuccess()
-                return toast(data?.status=== 200 ? 'success' : 'error', {
+               
+                return toast(data?.status=== 200 || data?.status === 201 ? 'Success' : 'Error', {
             description: data?.data
             })
         },
         onSettled: async () => {
-            return await client.invalidateQueries({queryKey: [queryKey]})
+            return await client.invalidateQueries({queryKey: [queryKey], exact: true})
         }
     })
 

@@ -37,7 +37,7 @@ const Folders = ({workspaceId}: Props) => {
     const {latestVariable} = usemutationDataState(['create-folder'])
 
     const {status, data : folders} = data as FoldersProps
-    console.log("FOLDER INDEXxxxxx ", folders )
+    
 
     // if(isFetched && folders){
 

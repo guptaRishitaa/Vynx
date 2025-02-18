@@ -32,8 +32,6 @@ const VideoCard = (props: Props) => {
     (new Date().getTime() - props.createdAt.getTime()) / (24 * 60 * 60 * 1000)
   );
 
-  console.log(props.User?.firstname)
-  console.log(props.workspaceId)
   return (
     <Loader
       className="bg-[#171717] flex justify-center items-center border-[1px] border-[#252525] rounded-xl"
