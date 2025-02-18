@@ -11,7 +11,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
         id : string
         name : string
         createdAt : Date
-        workspaceId : string | null
+        workSpaceId : string | null
     } )[]
  }
 

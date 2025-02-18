@@ -33,6 +33,7 @@ const VideoCard = (props: Props) => {
   );
 
   console.log(props.User?.firstname)
+  console.log(props.workspaceId)
   return (
     <Loader
       className="bg-[#171717] flex justify-center items-center border-[1px] border-[#252525] rounded-xl"

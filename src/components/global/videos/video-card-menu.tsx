@@ -19,7 +19,7 @@ const CardMenu = ({videoId, currentWorkspace, currentFolder, currentFolderName} 
     <Move size={20} fill='#4f4f4f' className='text-[#4f4f4f]'/>
    }>
 <ChangeVideoLocation currentFolder = {currentFolder}
-currentWorkspace ={currentWorkspace}
+currentWorkSpace={currentWorkspace}
 videoId = {videoId}
 currentFolderName={currentFolderName} />
    </Modal>

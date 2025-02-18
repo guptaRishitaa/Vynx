@@ -7,6 +7,8 @@ import { cn } from '@/lib/utils'
 import { useQueryData } from '@/hooks/useQueryData'
 import { getWorkspaceFolders } from '@/actions/workspace'
 import { usemutationDataState } from '@/hooks/useMutationData'
+import { useDispatch } from 'react-redux'
+import { FOLDERS } from '@/redux/slices/folders'
 
 type Props = {
     workspaceId : string
@@ -22,11 +24,12 @@ export type FoldersProps = {
         id : string
         name : string
         createdAt : Date
-        workspaceId : string | null
+        workSpaceId : string | null
     })[]
 }
 
 const Folders = ({workspaceId}: Props) => {
+    const dispatch = useDispatch()
     // get folders
     const {data, isFetched} = useQueryData(['workspace-folders'], ()=>getWorkspaceFolders(workspaceId))
 
@@ -34,10 +37,15 @@ const Folders = ({workspaceId}: Props) => {
     const {latestVariable} = usemutationDataState(['create-folder'])
 
     const {status, data : folders} = data as FoldersProps
+    console.log("FOLDER INDEXxxxxx ", folders )
 
     // if(isFetched && folders){
 
     // }
+
+    if(isFetched && folders){
+        dispatch(FOLDERS({folders : folders}))
+    }
 
 
 
