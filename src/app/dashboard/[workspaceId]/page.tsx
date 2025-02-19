@@ -1,15 +1,25 @@
+import { getAllUserVideos } from '@/actions/workspace'
 import CreateFolders from '@/components/global/create-folders'
 import CreateWorkspace from '@/components/global/create-workspace'
 import Folders from '@/components/global/folders'
+import Videos from '@/components/global/videos'
 import { Button } from '@/components/ui/button'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { dehydrate, HydrationBoundary, QueryClient } from '@tanstack/react-query'
 import React from 'react'
 
 type Props = {
   params :{workspaceId: string}
 }
 
-const Page = ({params}: Props) => {
+const Page = async ({params : {workspaceId}} : Props) => {
+  
+  const query = new QueryClient()
+  await query.prefetchQuery({
+      queryKey : ['folder-videos'],
+      queryFn : ()=>getAllUserVideos(workspaceId)
+  })
+
   return (
     <div>
       <Tabs defaultValue='videos' className='mt-6'>
@@ -20,12 +30,20 @@ const Page = ({params}: Props) => {
           </TabsList>
           <div className='flex gap-x-3'>
             <CreateWorkspace/>
-            <CreateFolders workspaceId={params.workspaceId}/>
+            <CreateFolders workspaceId={workspaceId}/>
           </div>
         </div>
         <section className='py-9'>
-          <TabsContent value='videos'>
-            <Folders workspaceId={params.workspaceId}/>
+          <TabsContent value='videos' className=' flex flex-col gap-7'>
+            <Folders workspaceId={workspaceId}/>
+
+            <HydrationBoundary state={dehydrate(query)}>
+
+
+            <Videos videosKey='folder-videos' workspaceId={workspaceId} folderId={workspaceId}  />
+            </HydrationBoundary>
+
+          
           </TabsContent>
         </section>
       </Tabs>
