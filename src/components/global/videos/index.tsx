@@ -3,7 +3,7 @@ import { getAllUserVideos } from '@/actions/workspace'
 import VideoRecorderDuotone from '@/components/icons/video-recorder-duotone'
 import { useQueryData } from '@/hooks/useQueryData'
 import { cn } from '@/lib/utils'
-import { VideoProps } from '@/types/index.type'
+import { VideosProps } from '@/types/index.type'
 import React from 'react'
 import VideoCard from './video-card'
 
@@ -19,7 +19,7 @@ const Videos = ({folderId, videosKey, workspaceId}: Props) => {
     const {data : videoData} = useQueryData([videosKey], ()=> getAllUserVideos(folderId)
 )
 
-const {status : videoStatus, data : videos} = videoData as VideoProps
+const {status : videoStatus, data : videos} = videoData as VideosProps
   return (
     <div className='flex flex-col gap-4 mt-4'>
       <div className='flex items-center justify-between'>

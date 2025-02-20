@@ -38,7 +38,7 @@ export type FolderProps = {
   }
 }
 
-export type VideoProps = {
+export type VideosProps = {
   status : number 
   data : {
     User : {
@@ -56,4 +56,28 @@ export type VideoProps = {
     title : string | null 
     source : string 
   } []
+}
+
+export type VideoProps = {
+  status: number;
+  data: {
+    User: {
+      firstname: string | null;
+      lastname: string | null;
+      image: string | null;
+      clerkid: string;
+      trial: boolean;
+      subscription: {
+        plan: 'FREE' | 'PRO';
+      } | null;
+    } | null;
+    title: string | null;
+    description: string | null;
+    source: string;
+    views: number;
+    createdAt: Date;
+    processing: boolean;
+    summary: string;
+  };
+  author: boolean;
 }

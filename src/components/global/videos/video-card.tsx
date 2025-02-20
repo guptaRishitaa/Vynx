@@ -27,7 +27,7 @@ type Props = {
 };
 
 const VideoCard = (props: Props) => {
-  // WIP: wire up date
+ 
   const daysAgo = Math.floor(
     (new Date().getTime() - props.createdAt.getTime()) / (24 * 60 * 60 * 1000)
   );
@@ -52,7 +52,7 @@ const VideoCard = (props: Props) => {
             videoId={props.id}
           />
         </div>
-        <Link href={`/preview/${props.id}`} className="hover:bg-[#252525] transition duration-150 flex flex-col justify-between h-full">
+        <Link href={`/dashboard/${props.workspaceId}/video/${props.id}`} className="hover:bg-[#252525] transition duration-150 flex flex-col justify-between h-full">
         <video controls={false} preload="metadata" className="w-ful aspect-video opacity-50 z-20" >
             <source src={`${process.env.NEXT_PUBLIC_CLOUD_FRONT_STREAM_URL}/${props.source}#t=1`}/>
         </video>
