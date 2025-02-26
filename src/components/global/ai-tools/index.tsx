@@ -17,7 +17,6 @@ const AiTools = ({ plan, videoId, trial }: Props) => {
   return (
     <TabsContent
       value="Ai Tools"
-      className="p-5 bg-[#1D1D1D] rounded-xl flex flex-col gap-y-10"
     >
       <div className="flex items-center">
         <div className="w-8/12">

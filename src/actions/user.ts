@@ -216,3 +216,101 @@ export const enableFirstView = async (state : boolean) => {
         return {status : 400}
     }
 }
+
+export const createCommentAndReply = async (
+    userId : string,
+    comment : string,
+    videoId: string,
+    commentId ?: string | undefined
+
+) => {
+
+    // if this reply alreadsy exist si then we are just updating the comment here
+    try {
+        if(commentId) {
+            const reply = await client.comment.update({
+            where : {
+                id : commentId
+            },
+            data : {
+                reply: {
+                    create : {
+                        comment,
+                        userId,
+                        videoId
+                    }
+                }
+            }
+        })
+
+        if(reply){
+            return { status : 200, data : 'Reply Posted'}
+        }
+    }
+
+        // but if it doenot exist then we need to create the reply here
+        const newComment = await client.video.update({
+            where:{
+                id : videoId
+            },
+            data :{
+                Comment : {
+                    create :{
+                        comment,
+                        userId
+                    }
+                }
+            }
+        })
+
+        if(newComment) return {status: 200, data : 'New Comment Added'}
+    } catch (error) {
+        return {status: 400}
+    }
+}
+
+export const getUserProfile = async() => {
+
+    try {
+        const user = await currentUser()
+        if(!user) return {status : 404}
+
+        const profileIdAndImage = await client.user.findUnique({
+            where : {
+                clerkid: user.id
+            },
+            select:{
+                id: true,
+                image: true
+            }
+        })
+
+        if(profileIdAndImage) return {status : 200, data: profileIdAndImage}
+    } catch (error) {
+        return {status : 400}
+    }
+} 
+
+export const getVideoComments = async(id: string) => {
+    try {
+        const comments = await client.comment.findMany({
+            where : {
+                OR : [{videoId : id} , {commentId : id}],
+                commentId : null
+            },
+            include : {
+                reply : {
+                    include : {
+                        User : true
+                    }
+                },
+                User: true
+            }
+        })
+
+       return {status : 200, data : comments}
+       
+    } catch (error) {
+        return {status : 404}
+    }
+}
