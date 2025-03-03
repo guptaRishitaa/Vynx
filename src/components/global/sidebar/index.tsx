@@ -88,9 +88,9 @@ const Sidebar = ({ activeWorkspaceId }: Props) => {
             {
               workspace.members.length >0 &&
               workspace.members.map((workspace) => 
-              workspace.workspace && (
-                <SelectItem key={workspace.workspace.id} value={workspace.workspace.id}>
-                  {workspace.workspace.name}
+              workspace.WorkSpace && (
+                <SelectItem key={workspace.WorkSpace.id} value={workspace.WorkSpace.id}>
+                  {workspace.WorkSpace.name}
                 </SelectItem>
               ))
             }
@@ -175,13 +175,13 @@ description="Invite other users to your Workspace" >
         {/* all the workspaces the user is a member of */}
         {workspace.members.length > 0 && 
         workspace.members.map((item)=> (
-          <SidebarItem href={`/dashboard/${item.workspace.id}`}
-        selected= {pathName === `/dashboard/${item.workspace.id}`} 
-        title={item.workspace.name}
+          <SidebarItem href={`/dashboard/${item.WorkSpace.id}`}
+        selected= {pathName === `/dashboard/${item.WorkSpace.id}`} 
+        title={item.WorkSpace.name}
         notifications={0} 
-        key={item.workspace.name}
+        key={item.WorkSpace.name}
         icon={<WorkspacePlaceholder>
-          {item.workspace.name.charAt(0)}
+          {item.WorkSpace.name.charAt(0)}
         </WorkspacePlaceholder>} />
         ))
 

@@ -9,7 +9,7 @@ export type WorkspaceProps = {
       type: "PUBLIC" | "PERSONAL";
     }[];
     members: {
-      workspace: {
+      WorkSpace: {
         id: string;
         name: string;
         type: "PUBLIC" | "PERSONAL";
