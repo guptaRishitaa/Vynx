@@ -29,6 +29,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import InfoBar from "../info-bar";
 import { useDispatch } from "react-redux";
 import { WORKSPACES } from "@/redux/slices/workspaces";
+import PaymentButton from "../payment-button";
 
 type Props = {
   activeWorkspaceId: string;
@@ -195,11 +196,8 @@ description="Invite other users to your Workspace" >
     <GlobalCard title="Upgrade to Pro"
     description="Unlock I features like transcription, AI summary and more."
     footer={
-<Button className="text-sm w-full mt-2">
-  <Loader state={false} color="#000">
-  Upgrade
-  </Loader>
-</Button>
+      <PaymentButton/>
+
     }>
       
       </GlobalCard>}

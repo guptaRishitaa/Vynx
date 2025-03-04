@@ -4,6 +4,11 @@ import { currentUser } from "@clerk/nextjs/server";
 import { client } from "@/lib/prisma";
 import nodemailer from "nodemailer";
 import { string } from "zod";
+import Stripe from 'stripe'
+import { Session } from "inspector/promises";
+
+const stripe = new Stripe(process.env.STRIPE_CLIENT_SECRET as string)
+
 
 export const sendEmail = async(
   to: string,
@@ -472,4 +477,38 @@ export const acceptInvite = async(inviteId: string) => {
         return {status : 400}
     }
 
+}
+
+export const completeSubscription = async (session_id :string) => {
+  try {
+    const user = await currentUser()
+    if(!user) return {status : 404}
+
+    const session = await stripe.checkout.sessions.retrieve(session_id)
+    if(session_id){
+      const customer = await client.user.update({
+        where :{
+          clerkid : user.id
+        },
+        data : {
+          subscription : {
+            update : {
+              data : {
+                customerId : session.customer as string,
+                plan: 'PRO'
+              }
+            }
+          }
+        }
+      })
+      if(customer){
+        return {status : 200}
+      }
+    }
+    return {status : 404}
+
+
+  } catch (error) {
+    return {status : 400}
+  }
 }
