@@ -13,6 +13,7 @@ import AiTools from '../../ai-tools'
 import VideoTranscript from '../../video-transcript'
 import { TabsContent } from '@radix-ui/react-tabs'
 import Activities from '../../activities'
+import EditVideo from '../edit'
 
 type Props = {
     videoId : string
@@ -50,7 +51,7 @@ const VideoPreview = ({videoId}: Props) => {
                     <h2 className='text-white text-4xl font-bold'>
                         {video.title}
                     </h2>
-                    {/* {author ? (
+                    {author ? (
                         <EditVideo
                         videoId = {videoId}
                         title = {video.title as string}
@@ -58,7 +59,7 @@ const VideoPreview = ({videoId}: Props) => {
                         />
                     ) : (
                         <></>
-                    )} */}
+                    )}
 
                 </div>
                 <span className='flex gap-x-3 mt-2'>
@@ -80,7 +81,7 @@ const VideoPreview = ({videoId}: Props) => {
                     <p className='text-[#BDBDBD] text-semibold'>
                         Description
                     </p>
-                     {/* {author ? (
+                     {author ? (
                         <EditVideo
                         videoId = {videoId}
                         title = {video.title as string}
@@ -88,7 +89,7 @@ const VideoPreview = ({videoId}: Props) => {
                         />
                     ) : (
                         <></>
-                    )} */}
+                    )}
                 </div>
                 <p className='text-[#9D9D9D] text-lg text-medium'>{video.description} </p>
             </div>
@@ -112,7 +113,7 @@ const VideoPreview = ({videoId}: Props) => {
                     trial={video.User?.trial!}
                     plan={video.User?.subscription?.plan!}
                     />
-                    <VideoTranscript transcript = {video.description!}/>
+                    <VideoTranscript transcript = {video.summary!}/>
                     <Activities author={video.User?.firstname as string} videoId={videoId} />
                 </TabMenu>
             </div>

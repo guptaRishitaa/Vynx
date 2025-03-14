@@ -35,7 +35,7 @@ export async function POST(
       data: {
         videos: {
           create: {
-            source: body.fileName,
+            source: body.filename,
             userId: id,
           },
         },
@@ -62,5 +62,6 @@ export async function POST(
     return NextResponse.json({status : 400})
   } catch (error) {
     console.log("🔴Error in processing video", error);
+    return NextResponse.json({ status: 500 });
   }
 }
