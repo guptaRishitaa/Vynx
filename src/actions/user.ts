@@ -312,6 +312,7 @@ export const getUserProfile = async () => {
     });
 
     if (profileIdAndImage) return { status: 200, data: profileIdAndImage };
+    return {status : 404}
   } catch (error) {
     return { status: 400 };
   }

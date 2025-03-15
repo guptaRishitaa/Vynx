@@ -1,4 +1,6 @@
 import FormGenerator from '@/components/global/form-generator';
+import Loader from '@/components/global/loader';
+import { Button } from '@/components/ui/button';
 import { useEditVideo } from '@/hooks/useEditVideo';
 import React from 'react'
 
@@ -23,7 +25,7 @@ const EditVideoForm = ( {description, title, videoId}: Props) => {
         name='title'
         inputType='input'
         type='text'
-        placeholder={'Video Title...'}
+        placeholder='Video Title...'
         label='Title' />
        
         <FormGenerator
@@ -33,8 +35,14 @@ const EditVideoForm = ( {description, title, videoId}: Props) => {
         inputType='input'
         type='text'
         lines={5 }
-        placeholder={'Video Description...'}
+        placeholder='Video Description...'
         label='Description' />
+
+        <Button><Loader state={isPending} color='#000' >
+          Update
+          
+          </Loader>
+           </Button>
     </form>
   )
 }
