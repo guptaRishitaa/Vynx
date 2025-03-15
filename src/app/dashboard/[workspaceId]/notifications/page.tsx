@@ -43,6 +43,7 @@ const page = (props: Props) => {
                         <User/>
                     </AvatarFallback>
                 </Avatar>
+                <p>{n.content}</p>
             </div>
         ))}
     </div>

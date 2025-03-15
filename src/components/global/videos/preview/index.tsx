@@ -31,6 +31,8 @@ const VideoPreview = ({videoId}: Props) => {
     const {data : video, status, author }= data as VideoProps
     if(status !== 200) router.push('/')
 
+        console.log('🔴 VIDEO ', video)
+
         const daysAgo = Math.floor(
            ( new Date().getTime()-video.createdAt.getTime()) / (24 * 60 * 60 * 1000)
         )

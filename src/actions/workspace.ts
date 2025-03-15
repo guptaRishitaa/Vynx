@@ -4,6 +4,8 @@ import { client } from "@/lib/prisma"
 import { currentUser } from "@clerk/nextjs/server"
 
 import { sendEmail } from "./user"
+import {createClient, OAuthStrategy} from '@wix/sdk'
+import {items} from '@wix/data'
 
 export const verifyAccessToWorkspace = async (workspaceId : string)=> {
     try {
@@ -311,6 +313,8 @@ export const getPreviewVideo = async (videoId : string) => {
         const user = await currentUser()
         if (!user) return {status : 404}
 
+        console.log(" 🔴 GETPREVIEW", user)
+
         const video = await client.video.findUnique({
             where : {
                 id : videoId
@@ -348,9 +352,9 @@ export const getPreviewVideo = async (videoId : string) => {
             }
         }
 
-        return { status : 400}
+        return { status : 400, data : null}
     } catch (error) {
-        return { status : 400}
+        return { status : 404, data : null}
     }
 }
 
@@ -453,4 +457,58 @@ export const editVideoInfo = async (
     }
 
 
+}
+
+export const getWixContent =async() => {
+    try {
+        const myWixClient = createClient({
+            modules : {items},
+            auth : OAuthStrategy({
+                clientId : process.env.WIX_OAUTH_KEY as string
+            })
+        })
+
+        const videos = await myWixClient.items.queryDataItems({
+            dataCollectionId : 'vynx-videos'}).find()
+        const videoIds = videos.items.map((v) => v.data?.title);
+        console.log(videos.items)
+
+        const video  = await client.video.findMany({
+            where : {
+                id : {
+                    in : videoIds
+                }
+            },
+            select : {
+                id : true,
+                createdAt : true,
+                title : true,
+                source : true,
+                processing : true,
+                workSpaceId : true,
+                User : {
+                    select : {
+                        firstname : true,
+                        lastname : true,
+                        image: true
+                    }
+                },
+                Folder : {
+                    select : {
+                        id : true,
+                        name : true
+                    }
+                }
+            }
+        })
+
+        if(video && video.length > 0){
+            return {status : 200, data : video}
+        }
+        return {status :
+             404
+        }
+    } catch (error) {
+        return {status : 400}
+    }
 }

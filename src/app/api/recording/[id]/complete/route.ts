@@ -19,6 +19,7 @@ export async function POST (req: NextRequest,
     })
 
     if(completeProcessing) {
+        console.log("🟢 Completed [rocessing video")
         return NextResponse.json({status : 200})
     }
 
