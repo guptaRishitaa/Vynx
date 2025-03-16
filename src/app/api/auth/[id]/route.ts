@@ -25,7 +25,8 @@ export async function GET(
     if (userProfile)
       return NextResponse.json({ status: 200, user: userProfile });
 
-    const clerkUserInstance = await (await clerkClient()).users.getUser(id);
+    const clerkUserInstance =  await clerkClient.users.getUser(id);
+
     const createUser = await client.user.create({
       data: {
         clerkid: id,

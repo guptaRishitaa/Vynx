@@ -3,9 +3,8 @@
 import { currentUser } from "@clerk/nextjs/server";
 import { client } from "@/lib/prisma";
 import nodemailer from "nodemailer";
-import { string } from "zod";
 import Stripe from 'stripe'
-import { Session } from "inspector/promises";
+
 
 const stripe = new Stripe(process.env.STRIPE_CLIENT_SECRET as string)
 
