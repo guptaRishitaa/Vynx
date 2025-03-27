@@ -34,7 +34,7 @@ const VideoPreview = ({videoId}: Props) => {
         console.log('🔴 VIDEO ', video)
 
         const daysAgo = Math.floor(
-           ( new Date().getTime()-video.createdAt.getTime()) / (24 * 60 * 60 * 1000)
+           ( new Date().getTime()-video?.createdAt.getTime()) / (24 * 60 * 60 * 1000)
         )
 
     useEffect(()=>{

@@ -10,7 +10,10 @@ type Props = {
     }
 }
 
-const VideoPage = async ({params : {videoId}}: Props) => {
+const VideoPage = async ({params }: Props) => {
+    console.log("ROUTE PARAMS: ", params);
+    const { videoId } = params;
+    console.log("VIDEO ID: ", videoId);
     const query = new QueryClient()
 
     await query.prefetchQuery({
@@ -27,6 +30,8 @@ const VideoPage = async ({params : {videoId}}: Props) => {
         queryKey : ['video-comments'],
         queryFn : () => getVideoComments(videoId)
     })
+
+    console.log("VIDEO ID ",videoId)
 
   return (
     <HydrationBoundary state={dehydrate (query)}>

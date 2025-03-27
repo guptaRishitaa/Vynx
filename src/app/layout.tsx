@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme";
 import ReactQueryProvider from "@/react-query";
 import { ReduxProvider } from "@/redux/provider";
 import { Toaster } from "sonner";
+import Footer from "./(website)/_components/footer";
 
 const manrope = Manrope({ subsets: ["latin"] });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${manrope.className} bg-[#171717]`}>
+        <body className={`${manrope.className}`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -32,6 +33,7 @@ export default function RootLayout({
             <ReduxProvider>
               <ReactQueryProvider>
                 {children}
+                <Footer/>
                 <Toaster/>
                 </ReactQueryProvider>
 
