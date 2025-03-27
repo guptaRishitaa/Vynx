@@ -1,5 +1,6 @@
 import { Bell, CreditCard, FileDuoToneBlack, Home, Settings } from "@/components/icons";
 
+
 // here we can use this workspace id dynamiccaly and pass it into the returned aray
 export const MENU_ITEMS = (
   workspaceId: string
@@ -28,5 +29,10 @@ export const MENU_ITEMS = (
     title: "Settings",
     href: `/dashboard/${workspaceId}/settings`,
     icon: <Settings />,
+  },
+  {
+    title: "User Guide",
+    href: `/dashboard/${workspaceId}/guide`,
+    icon: <FileDuoToneBlack/>,
   },
 ];
