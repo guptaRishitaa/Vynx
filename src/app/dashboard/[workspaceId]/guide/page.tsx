@@ -155,9 +155,9 @@ export default function GuidePage() {
           <Card>
             <CardContent className="p-6 md:p-8 space-y-8">
               <div id="overview" className="scroll-mt-24">
-                <h1 className="text-3xl font-bold mb-4">Opal User Guide</h1>
+                <h1 className="text-3xl font-bold mb-4">Vynx User Guide</h1>
                 <p className="text-lg text-muted-foreground mb-6">
-                  Welcome to Opal, the video recording and sharing platform designed to streamline your communication.
+                  Welcome to vynx, the video recording and sharing platform designed to streamline your communication.
                   In this guide, we'll walk you through key features such as creating workspaces, managing teams,
                   recording videos, sharing content, and more. Let's get started!
                 </p>
@@ -179,10 +179,10 @@ export default function GuidePage() {
               <div id="workspaces" className="scroll-mt-24 pt-4 border-t border-border">
                 <h2 className="text-2xl font-bold mb-4">1. Creating Workspaces</h2>
                 <p className="mb-4">
-                  Workspaces in Opal help you organize videos, projects, and teams. To create a new workspace:
+                  Workspaces in vynx help you organize videos, projects, and teams. To create a new workspace:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 ml-4 mb-4">
-                  <li>Log in to your Opal account.</li>
+                  <li>Log in to your vynx account.</li>
                   <li>Navigate to the dashboard and click on the Workspaces tab located in the sidebar.</li>
                   <li>Select the "Create New Workspace" button.</li>
                   <li>Enter a name for your workspace (e.g., "Marketing Team", "Product Demos").</li>
@@ -195,7 +195,7 @@ export default function GuidePage() {
               <div id="team-members" className="scroll-mt-24 pt-4 border-t border-border">
                 <h2 className="text-2xl font-bold mb-4">2. Adding Team Members</h2>
                 <p className="mb-4">
-                  Collaboration is a key feature in Opal. Here's how you can add team members to your workspace:
+                  Collaboration is a key feature in vynx. Here's how you can add team members to your workspace:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 ml-4 mb-4">
                   <li>In your workspace, navigate to the "Team Members" tab.</li>
@@ -210,7 +210,7 @@ export default function GuidePage() {
               <div id="recording" className="scroll-mt-24 pt-4 border-t border-border">
                 <h2 className="text-2xl font-bold mb-4">3. Recording Videos</h2>
                 <p className="mb-4">
-                  Opal allows you to record and share videos directly from your browser or desktop. To record a video:
+                  vynx allows you to record and share videos directly from your browser or desktop. To record a video:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 ml-4 mb-4">
                   <li>Navigate to the workspace where you want to save the video.</li>
@@ -251,22 +251,22 @@ export default function GuidePage() {
 
               <div id="desktop-plugin" className="scroll-mt-24 pt-4 border-t border-border">
                 <h2 className="text-2xl font-bold mb-4">5. Downloading the Desktop Plugin</h2>
-                <p className="mb-4">For a smoother experience, you can use the Opal Desktop Plugin for recording:</p>
+                <p className="mb-4">For a smoother experience, you can use the vynx Desktop Plugin for recording:</p>
                 <ol className="list-decimal list-inside space-y-2 ml-4 mb-4">
-                  <li>Go to the Opal Dashboard and click on the Downloads section.</li>
+                  <li>Go to the vynx Dashboard and click on the Downloads section.</li>
                   <li>
                     Select the "Download Desktop Plugin" button compatible with your operating system (Mac or Windows).
                   </li>
                   <li>Install the plugin by following the on-screen instructions.</li>
-                  <li>Once installed, you'll see an Opal icon in your desktop toolbar.</li>
+                  <li>Once installed, you'll see an vynx icon in your desktop toolbar.</li>
                 </ol>
-                <p>You can now access Opal directly from your desktop, even when your browser is closed.</p>
+                <p>You can now access vynx directly from your desktop, even when your browser is closed.</p>
               </div>
 
               <div id="resolution" className="scroll-mt-24 pt-4 border-t border-border">
                 <h2 className="text-2xl font-bold mb-4">6. Selecting Video Resolution</h2>
                 <p className="mb-4">
-                  Opal allows you to select different video resolutions to ensure high-quality recordings:
+                  vynx allows you to select different video resolutions to ensure high-quality recordings:
                 </p>
                 <ol className="list-decimal list-inside space-y-2 ml-4 mb-4">
                   <li>Before starting your video recording, click the "Settings" icon in the recording window.</li>
@@ -287,7 +287,7 @@ export default function GuidePage() {
 
               <div id="plans" className="scroll-mt-24 pt-4 border-t border-border">
                 <h2 className="text-2xl font-bold mb-4">7. Choosing Paid or Free Plans</h2>
-                <p className="mb-4">Opal offers both free and paid plans to cater to different user needs:</p>
+                <p className="mb-4">vynx offers both free and paid plans to cater to different user needs:</p>
 
                 <Tabs defaultValue="free" className="w-full">
                   <TabsList className="grid w-full grid-cols-2">
@@ -335,7 +335,7 @@ export default function GuidePage() {
             <div className="flex items-center mb-4 md:mb-0">
               <Video className="h-5 w-5 text-primary mr-2" />
               <span className="text-sm text-muted-foreground">
-                © {new Date().getFullYear()} Opal. All rights reserved.
+                © {new Date().getFullYear()} vynx. All rights reserved.
               </span>
             </div>
             <div className="flex space-x-6">
