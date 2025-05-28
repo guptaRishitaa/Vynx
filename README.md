@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📘 Vynx User Guide
 
-## Getting Started
+Welcome to **vynx**, the video recording and sharing platform designed to streamline your communication.
 
-First, run the development server:
+This guide will walk you through key features such as creating workspaces, managing teams, recording videos, sharing content, and more. Let's get started! 🚀
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 📑 Table of Contents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. [Creating Workspaces](#1-creating-workspaces)
+2. [Adding Team Members](#2-adding-team-members)
+3. [Recording Videos](#3-recording-videos)
+4. [Sharing Video Links](#4-sharing-video-links)
+5. [Downloading the Desktop Plugin](#5-downloading-the-desktop-plugin)
+6. [Selecting Video Resolution](#6-selecting-video-resolution)
+7. [Choosing Paid or Free Plans](#7-choosing-paid-or-free-plans)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 1. Creating Workspaces
 
-To learn more about Next.js, take a look at the following resources:
+Workspaces in vynx help you organize videos, projects, and teams.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🔧 Steps to Create a Workspace:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Log in to your vynx account.
+2. Go to the **Dashboard** and click the **Workspaces** tab in the sidebar.
+3. Select **Create New Workspace**.
+4. Enter a name (e.g., _Marketing Team_, _Product Demos_).
+5. Customize with relevant **tags** or **colors** for easy identification.
+6. Click **Create** to finalize.
 
-## Deploy on Vercel
+> ✅ **Tip:** You can create multiple workspaces for different teams or projects.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 2. Adding Team Members
+Collaboration is a key feature in vynx. Here's how you can add team members to your workspace:
+
+1. In your workspace, navigate to the "Team Members" tab.
+2. Click the "Invite Member" button.
+3. Enter the email addresses of the people you'd like to invite.
+4. Assign them roles (e.g., Viewer, Editor, Admin) based on their responsibilities.
+5. Click "Send Invites".
+6. Once invited, team members will receive an email with instructions to join the workspace.
+
+---
+
+## 3. Recording Videos
+vynx allows you to record and share videos directly from your browser or desktop. To record a video:
+
+1. Navigate to the workspace where you want to save the video.
+2. Click on the "Record" button, located in the top navigation bar.
+3. Select your recording type:
+   - Screen only: Record your screen without the camera.
+   - Camera only: Record yourself via webcam.
+   - Screen + Camera: Record your screen with a picture-in-picture view of yourself.
+4. Choose your microphone and camera settings.
+5. Click "Start Recording".
+6. To stop recording, hit the "Stop" button or use the keyboard shortcut Shift + S.
+   
+The video will automatically upload to your workspace when finished.
+
+---
+
+## 4. Sharing Video Links
+Once you've recorded your video, sharing is just a few clicks away:
+
+1. After recording, navigate to the video file within your workspace.
+2. Click on the "Share" button next to the video.
+3. Choose your sharing preferences:
+   - Public: Anyone with the link can view the video.
+   - Private: Only team members within the workspace can access the video.
+   - Password-protected: Set a password for extra security.
+4. Copy the generated link and share it via email, social media, or other platforms.
+Your video link is now ready to be shared!
+
+---
+
+## 5. Downloading the Desktop Plugin
+For a smoother experience, you can use the vynx Desktop Plugin for recording:
+
+1. Go to the vynx Dashboard and click on the Downloads section.
+2. Select the "Download Desktop Plugin" button compatible with your operating system (Mac or Windows).
+3. Install the plugin by following the on-screen instructions.
+4. Once installed, you'll see an vynx icon in your desktop toolbar.
+
+---
+
+## 6. Selecting Video Resolution
+vynx allows you to select different video resolutions to ensure high-quality recordings:
+
+1. Before starting your video recording, click the "Settings" icon in the recording window.
+2. In the "Resolution" dropdown, choose your preferred resolution:
+   - 1080p (Full HD): Ideal for high-quality recordings.
+   - 720p (HD): A good balance between quality and file size.
+3. Once selected, your recording will proceed with the chosen resolution.
+
+---
+
+## 7. Choosing Paid or Free Plans
+vynx offers both free and paid plans to cater to different user needs:
+
+---
+
+
+### 🛠 Need Help?
+Feel free to open an issue or reach out to our support team!
