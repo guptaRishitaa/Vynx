@@ -13,6 +13,9 @@ const manrope = Manrope({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Vynx",
   description: "Share AI powered videos with your clients",
+  icons: {
+    icon: '/opal-logo.svg', // ✅ <-- This line adds the favicon
+  },
 };
 
 export default function RootLayout({
